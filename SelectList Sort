@@ -10,7 +10,6 @@
 	.slideSortImage { display:none; }
 </style>
 <form>
-
 	<select size="15" style="width:500px;" id="select2">
     	<option value="1">option 1</option>
     	<option value="2">option 2</option>
