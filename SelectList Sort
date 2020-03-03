@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Select List Sort</title>
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<body>
+<style type="text/css">
+	.slideSortImage { display:none; }
+</style>
+<form>
+
+	<select size="15" style="width:500px;" id="select2">
+    	<option value="1">option 1</option>
+    	<option value="2">option 2</option>
+    	<option value="3">option 3</option>
+    	<option value="4">option 4</option>
+    </select>
+	<input id="moveUp" type="button" value="Move Up" />
+	<input id="moveDown" type="button" value="Move Down" />
+    <div style="width:504px; height:504px; border:3px solid #ccc; padding:15px 15px 15px 15px;">
+        <img id="slideImage1" class="slideSortImage" src="images/1.jpg" />
+        <img id="slideImage2" class="slideSortImage" src="images/2.jpg" />
+        <img id="slideImage3" class="slideSortImage" src="images/3.jpg" />
+        <img id="slideImage4" class="slideSortImage" src="images/4.jpg" />
+    </div>
+</form>
+
+<script>
+$(document).ready(function(){
+    $('#moveUp').click(function(){
+		$('#select2 option:selected').each(function(){
+			$(this).insertBefore($(this).prev());
+		});
+    });
+    $('#moveDown').click(function(){
+		$('#select2 option:selected').each(function(){
+			$(this).insertAfter($(this).next());
+		});
+    });
+    $('#select2 option').click(function(){
+		$('.slideSortImage').css('display','none');
+		$('#slideImage'+$(this).val()).css('display','block');
+    });
+});
+</script>
+</body>
+</html>
